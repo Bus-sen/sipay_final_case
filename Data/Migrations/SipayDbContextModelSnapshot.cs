@@ -21,7 +21,7 @@ namespace Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Data.Models.Bill", b =>
+            modelBuilder.Entity("Data.Bill", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -71,7 +71,7 @@ namespace Data.Migrations
                     b.ToTable("Bills", "dbo");
                 });
 
-            modelBuilder.Entity("Data.Models.HouseDetail", b =>
+            modelBuilder.Entity("Data.HouseDetail", b =>
                 {
                     b.Property<int>("HouseId")
                         .HasColumnType("int");
@@ -113,7 +113,7 @@ namespace Data.Migrations
                     b.ToTable("HouseDetails", "dbo");
                 });
 
-            modelBuilder.Entity("Data.Models.Householder", b =>
+            modelBuilder.Entity("Data.Householder", b =>
                 {
                     b.Property<int>("HouseholderNumber")
                         .HasColumnType("int");
@@ -156,61 +156,9 @@ namespace Data.Migrations
                     b.ToTable("Householders", "dbo");
                 });
 
-            modelBuilder.Entity("Data.Models.User", b =>
+            modelBuilder.Entity("Data.Bill", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<int>("PasswordRetryCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserName")
-                        .IsUnique();
-
-                    b.ToTable("Users", "dbo");
-                });
-
-            modelBuilder.Entity("Data.Models.Bill", b =>
-                {
-                    b.HasOne("Data.Models.HouseDetail", "HouseDetail")
+                    b.HasOne("Data.HouseDetail", "HouseDetail")
                         .WithMany("Bills")
                         .HasForeignKey("HouseId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -219,9 +167,9 @@ namespace Data.Migrations
                     b.Navigation("HouseDetail");
                 });
 
-            modelBuilder.Entity("Data.Models.HouseDetail", b =>
+            modelBuilder.Entity("Data.HouseDetail", b =>
                 {
-                    b.HasOne("Data.Models.Householder", "Householder")
+                    b.HasOne("Data.Householder", "Householder")
                         .WithMany("HouseDetails")
                         .HasForeignKey("HouseholderNumber")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -230,12 +178,12 @@ namespace Data.Migrations
                     b.Navigation("Householder");
                 });
 
-            modelBuilder.Entity("Data.Models.HouseDetail", b =>
+            modelBuilder.Entity("Data.HouseDetail", b =>
                 {
                     b.Navigation("Bills");
                 });
 
-            modelBuilder.Entity("Data.Models.Householder", b =>
+            modelBuilder.Entity("Data.Householder", b =>
                 {
                     b.Navigation("HouseDetails");
                 });

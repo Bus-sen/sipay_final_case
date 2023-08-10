@@ -1,5 +1,4 @@
 ﻿using Base.BaseModel;
-using Data.Models;
 using Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,8 +14,6 @@ public class UnitOfWork : IUnitOfWork
         HouseholderRepository = new GenericRepository<Householder>(sipayDbContext);
         HouseDetailRepository = new GenericRepository<HouseDetail>(sipayDbContext);
         BillRepository = new GenericRepository<Bill>(sipayDbContext);
-        UserRepository = new GenericRepository<User>(sipayDbContext);
-        UserLogRepository = new GenericRepository<UserLog>(sipayDbContext);
     }
 
     public IGenericRepository<Householder> HouseholderRepository { get; private set; }
@@ -25,8 +22,6 @@ public class UnitOfWork : IUnitOfWork
 
     public IGenericRepository<Bill> BillRepository { get; private set; }
 
-    public IGenericRepository<User> UserRepository { get; private set; }
-    public IGenericRepository<UserLog> UserLogRepository { get; private set; }
 
     public void Complete()
     {

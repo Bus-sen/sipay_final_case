@@ -4,7 +4,7 @@
 
 namespace Data.Migrations
 {
-    public partial class InitalMigration : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,27 +27,6 @@ namespace Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Householders", x => x.HouseholderNumber);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Users",
-                schema: "dbo",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    FirstName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    Role = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
-                    PasswordRetryCount = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -127,23 +106,12 @@ namespace Data.Migrations
                 table: "Householders",
                 column: "HouseholderNumber",
                 unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Users_UserName",
-                schema: "dbo",
-                table: "Users",
-                column: "UserName",
-                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Bills",
-                schema: "dbo");
-
-            migrationBuilder.DropTable(
-                name: "Users",
                 schema: "dbo");
 
             migrationBuilder.DropTable(

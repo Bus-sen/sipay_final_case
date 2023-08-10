@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Data;
-using Data.Models;
 
 namespace Schema.Mapper;
 
@@ -17,10 +16,5 @@ public class MapperConfig : Profile
         CreateMap<BillRequest, Bill>();
         CreateMap<Bill, BillResponse>();
 
-        CreateMap<UserRequest, User>();
-        CreateMap<User, UserResponse>();
-
-        CreateMap<UserLogRequest, User>();
-        CreateMap<User, UserLogResponse>();
     }
 }

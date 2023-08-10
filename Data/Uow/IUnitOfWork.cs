@@ -1,5 +1,4 @@
 ﻿using Base.BaseModel;
-using Data.Models;
 using Data.Repositories;
 
 namespace Data.Uow;
@@ -12,6 +11,4 @@ public interface IUnitOfWork
     IGenericRepository<Householder> HouseholderRepository { get; }
     IGenericRepository<HouseDetail> HouseDetailRepository { get; }
     IGenericRepository<Bill> BillRepository { get; }
-    IGenericRepository<User> UserRepository { get; }
-    IGenericRepository<UserLog> UserLogRepository { get; }
 }

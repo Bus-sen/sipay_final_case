@@ -11,5 +11,5 @@ public class HouseDetailResponse
     public bool IsEmpty { get; set; }
     public bool IsSmall { get; set; }
 
-    public virtual List<BillResponse> Bills { get; set; }
+    //public virtual List<BillResponse> Bills { get; set; }
 }

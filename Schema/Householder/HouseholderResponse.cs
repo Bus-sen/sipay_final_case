@@ -9,5 +9,5 @@ public class HouseholderResponse
     public string PhoneNumber { get; set; }
     public bool HaveCar { get; set; }
 
-    public virtual List<HouseDetailResponse> HouseDetails { get; set; }
+    //public virtual List<HouseDetailResponse> HouseDetails { get; set; }
 }

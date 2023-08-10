@@ -8,14 +8,14 @@ namespace Data;
 [Table("HouseDetails", Schema = "dbo")]
 public class HouseDetail : BaseModel
 {
-    public int HouseId { get; set; } //accountnumber
+    public int HouseId { get; set; } 
 
     public int HouseholderNumber { get; set; }
     public virtual Householder Householder { get; set; }
 
     public int Floor { get; set; }
-    public bool IsEmpty { get; set; } //boş(true)
-    public bool IsSmall { get; set; } // 3+1:small(true) 4+1=large(false)
+    public bool IsEmpty { get; set; } 
+    public bool IsSmall { get; set; } 
     
     public virtual List<Bill> Bills { get; set; }
 }

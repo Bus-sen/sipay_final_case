@@ -28,8 +28,6 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IHouseholderService, HouseholderService>();
 builder.Services.AddScoped<IHouseDetailService, HouseDetailService>();
 builder.Services.AddScoped<IBillService, BillService>();
-builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IUserLogService, UserLogService>();
 
 
 

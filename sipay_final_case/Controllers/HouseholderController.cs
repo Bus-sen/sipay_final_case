@@ -1,7 +1,4 @@
-﻿using AutoMapper;
-using Base.Response;
-using Data.Models;
-using Data.Uow;
+﻿using Base.Response;
 using Microsoft.AspNetCore.Mvc;
 using Schema;
 using Services;
